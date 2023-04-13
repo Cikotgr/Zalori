@@ -33,14 +33,16 @@ Route::get('/test', function () {
 Route::get('/test1',[TestController::class,'showbyDate']);
 // Route::get('/test1',[TestController::class,'showbyID']);
 
-
-Route::get('/post',[PostController::class,'index'])->name('post.index');
-Route::get('/post/create',[PostController::class,'create'])->name('post.create');
-Route::post('post/store',[PostController::class,'store'])->name('post.store');
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
+Route::get('/post', function(){
+    return view('post.index');
+})->name(('post.index'));
+// Route::get('/post',[PostController::class,'index'])->name('post.index');
+// Route::get('/post/create',[PostController::class,'create'])->name('post.create');
+// Route::post('post/store',[PostController::class,'store'])->name('post.store');
+// Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
